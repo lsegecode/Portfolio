@@ -6,4 +6,8 @@ class Project(models.Model):
     title = CharField(max_length=100)
     description = CharField(max_length = 1000)
     image = ImageField(upload_to='portfolio/images/')
-    url = URLField(blank=True)
+    repository_url = URLField(blank=True)
+    deploy_url = URLField(blank=True)
+
+    def __str__(self) -> str:
+        return self.title
