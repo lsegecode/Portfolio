@@ -4,10 +4,11 @@ from . import views
 from django.conf.urls.static import static
 from django.conf import settings
 
+app_name = 'portfolio'
 
 urlpatterns = [
     path('', views.home),
-    path('git', views.git),
+    path('git', views.git, name="git_projects"),
 
 ]
 
