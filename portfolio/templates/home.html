@@ -1,19 +1,76 @@
-{% extends "./base.html" %} 
-{% block title %}HOME{%endblock%} 
+{% extends "./base.html" %} {% block title %}HOME{%endblock%} {% block body %}
+{% load static %}
+<header class="row bg-black">
+  <div class="col-md-4">
+    <img
+      src="{% static 'img/photo.jpg' %}"
+      alt="my photo"
+      width="308"
+      height="365"
+    />
+  </div>
+  <div class="col-md-8 my-auto">
+    <h1>I am <stong> Lucas Sanabria</stong></h1>
+    <h3>I am a Backend Developer</h3>
+    <p>
+      I am a seasoned developer with more than two years of expertise.
+      Proficient in Python and Django, I've also delved into Java (Spring) and
+      PHP (Laravel, Symfony). My prowess extends to SQL databases—PostgreSQL,
+      MySQL, and SQL Server. As a QA automation engineer, I orchestrated 100+
+      test cases through a robust automation framework. I harnessed pytest BDD,
+      selenium, gherkin, and robot for API and UI tests. Well-versed in CI/CD
+      pipelines, Docker, and more, I'm a versatile professional dedicated to
+      enhancing software quality and delivery. My journey is defined by
+      innovation, precision, and a commitment to technological advancement.
+    </p>
 
-{% block body %}
-<h1>Portfolio Example</h1>
-    
-{% for project in projects  %}
-    <h2>{{project.title}}</h2>
-    <img src="{{project.image.url}}" alt="{{project.title}}">
-    <a href="{{project.repository_url}}">{{project.repository_url}}</a>
+    <a
+      class="btn btn-primary btn-lg rounded-0 my-3"
+      href="{% static 'img/Lucas_Sanabria_Resume.pdf'%}"
+      target="_blank"
+      >Download CV</a
+    >
+  </div>
+</header>
 
-    {% if project.deploy_url %}
-    <a href="{{project.deploy_url}}">{{project.deploy_url}}</a>
-    {% endif %}
+<div class="row my-4 text-center">
+  <h3>My Projects</h3>
+  <p>
+    Crafting Innovative Solutions and Seamless User Experiences Through Code.
+  </p>
 
-{% endfor %}
+  {% for project in projects %}
+  <div class="col-md-4 p-4">
+    <div class="car bg-black card-project">
+    <a href="{{project.repository_url}}" style="text-decoration:none">
 
+        <img src="{{project.image.url}}" alt="{{project.title}}" class="card-img-top" />
 
+      <div class="card-body">
+        <h2>{{project.title}}</h2>
+        <p>{{ project.description }}</p>
+        <a
+          href="{{project.repository_url}}"
+          class="btn btn-primary"
+          target="__blank"
+          rel="noreferrer"
+          >Visit the repository
+          </a>
+        </a>
+        {% if project.deploy_url %}
+        <div class="p-2"> 
+        <a
+          href="{{project.deploy_url}}"
+          class="btn btn-primary"
+          target="__blank"
+          rel="noreferrer"
+          >Visit the Project</a
+        >
+      </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}

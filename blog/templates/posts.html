@@ -1,19 +1,32 @@
 {% extends "./base.html" %} {% block title %}BLOG{%endblock%} {% block body %}
+{% load static %}
 
-<h1>BLOGS</h1>
+<h1 class="fs-2 my-auto py-2">BLOGS</h1>
+<h4>
+  Exploring Tech Landscapes and Sharing Insights Through My Keyboard Adventures.
+</h4>
 
 {% for post in posts %}
-<div>
-  <a href="{%url 'blog:post_detail' post.id%}">
-    <span><h2>{{post.title}}</h2></span>
-    <span>{{post.description|safe|truncatechars:100}}</span>
-    <span
-      ><img
-        src="{{post.image.url}}"
-        alt="{{post.title}}"
-        width="80"
-        height="80" /></span
-  ></a>
+<div class="card-blog py-2">
+  <a href="{%url 'blog:post_detail' post.id%}" style="text-decoration:none">
+    <div class="p-2">
+      <div class="car card-body bg-black ">
+        <div class="row">
+          <div class="col-3">
+            <img
+              class="img-fluid"
+              src="{{post.image.url}}"
+              alt="{{post.title}}"
+            />
+          </div>
+          <div class="col-9">
+            <h2 class="p-1">{{post.title}}</h2>
+            {{post.description|safe|truncatechars:600}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
 </div>
 
 {% endfor %} {% endblock %}

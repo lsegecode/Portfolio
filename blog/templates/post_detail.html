@@ -2,11 +2,17 @@
 {% block title %}BLOG{%endblock%} 
 
 {% block body %}
-<h1>POST DETAIL</h1>
+<div class="text-center">
 
 <h1> {{post.title}}</h1>
+<div class="my-4">
 <p> {{post.description|safe}}</p>
-<img src="{{post.image.url}}" alt="{{post.title}}">
-<div>{{post.date}}</div>
+
+</div>
+<img src="{{post.image.url}}" alt="{{post.title}}" class="img-fluid">
+<div class="my-4">{{post.date}}</div>
+
+
+</div>
 
 {% endblock %}
