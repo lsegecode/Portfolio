@@ -7,6 +7,7 @@ $.ajax({
   console.log(results);
 
   for (let i = 0; i < results.length; i++) {
+    
     if (results[i].stargazers_count != 0) {
       let article =
         "<article><header><h2 style='color:lightblue;'>" + results[i].name +
@@ -15,7 +16,6 @@ $.ajax({
         results[i].html_url +
         " target=_blank class=button>Github Repo</a></li>" +
         " </ul></article>";
-
       main.append(article);
     }
   }

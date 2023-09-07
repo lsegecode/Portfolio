@@ -11,7 +11,7 @@
   </div>
   <div class="col-md-8 my-auto">
     <h1>I am <stong> Lucas Sanabria</stong></h1>
-    <h3>I am a Backend Developer</h3>
+    <h3>a Backend Developer, QA Automation Engineer and Data Engineer</h3>
     <p>
       I am a seasoned developer with more than two years of expertise.
       Proficient in Python and Django, I've also delved into Java (Spring) and
@@ -42,8 +42,6 @@
   {% for project in projects %}
   <div class="col-md-4 p-4">
     <div class="car bg-black card-project">
-    <a href="{{project.repository_url}}" style="text-decoration:none">
-
         <img src="{{project.image.url}}" alt="{{project.title}}" class="card-img-top" />
 
       <div class="card-body">
@@ -56,7 +54,6 @@
           rel="noreferrer"
           >Visit the repository
           </a>
-        </a>
         {% if project.deploy_url %}
         <div class="p-2"> 
         <a
